@@ -1,17 +1,11 @@
 import { FastifyInstance } from "fastify";
-import { newSkirmish, joinOpenMatch, proceedRound } from "../schemas/match.schema";
+import {  joinOpenMatch, proceedRound } from "../schemas/match.schema";
 import * as controllers from "../controllers";
 async function matchRouter(fastify: FastifyInstance) {
     fastify.route({
       method: "GET",
       url: "/",
       handler: controllers.welcome,
-    });
-    fastify.route({
-      method: "POST",
-      url: "/skirmish",
-      schema: newSkirmish,
-      handler: controllers.newSkirmish,
     });
     fastify.route({
       method: "POST",
@@ -28,16 +22,6 @@ async function matchRouter(fastify: FastifyInstance) {
       url: "/open-match",
       schema: joinOpenMatch,
       handler: controllers.joinOpenMatch,
-    });
-    fastify.route({
-      method: "GET",
-      url: "/watch/match",
-      handler: controllers.seeMatchInfo,
-    });
-    fastify.route({
-      method: "GET",
-      url: "/watch/match/:round",
-      handler: controllers.seeRoundInfo,
     });
     fastify.route({
       method: "POST",

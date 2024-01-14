@@ -7,14 +7,6 @@ export const emptySchema = {
   headers: S.object(),
 };
 
-export const newSkirmish = {
-  body: S.object()
-  .prop('difficulty',S.number().required()),
-  queryString: S.object(),
-  params: S.object(),
-  headers: S.object(),
-};
-
 export const joinOpenMatch = {
   body: S.object().prop("otheruser", S.string().required()),
   queryString: S.object(),

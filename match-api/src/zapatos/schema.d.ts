@@ -23,6 +23,382 @@ declare module 'zapatos/schema' {
   /* --- tables --- */
 
   /**
+   * **matches**
+   * - Table in database
+   */
+  export namespace matches {
+    export type Table = 'matches';
+    export interface Selectable {
+      /**
+      * **matches.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('matches_id_seq'::regclass)`
+      */
+      id: number;
+      /**
+      * **matches.player1**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      player1: number;
+      /**
+      * **matches.player2**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      player2: number;
+      /**
+      * **matches.date_creation**
+      * - `date` in database
+      * - `NOT NULL`, no default
+      */
+      date_creation: Date;
+      /**
+      * **matches.round**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      round: number;
+      /**
+      * **matches.status**
+      * - `varchar` in database
+      * - Nullable, no default
+      */
+      status: string | null;
+    }
+    export interface JSONSelectable {
+      /**
+      * **matches.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('matches_id_seq'::regclass)`
+      */
+      id: number;
+      /**
+      * **matches.player1**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      player1: number;
+      /**
+      * **matches.player2**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      player2: number;
+      /**
+      * **matches.date_creation**
+      * - `date` in database
+      * - `NOT NULL`, no default
+      */
+      date_creation: db.DateString;
+      /**
+      * **matches.round**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      round: number;
+      /**
+      * **matches.status**
+      * - `varchar` in database
+      * - Nullable, no default
+      */
+      status: string | null;
+    }
+    export interface Whereable {
+      /**
+      * **matches.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('matches_id_seq'::regclass)`
+      */
+      id?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **matches.player1**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      player1?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **matches.player2**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      player2?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **matches.date_creation**
+      * - `date` in database
+      * - `NOT NULL`, no default
+      */
+      date_creation?: (db.DateString | Date) | db.Parameter<(db.DateString | Date)> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, (db.DateString | Date) | db.Parameter<(db.DateString | Date)> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **matches.round**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      round?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **matches.status**
+      * - `varchar` in database
+      * - Nullable, no default
+      */
+      status?: string | db.Parameter<string> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, string | db.Parameter<string> | db.SQLFragment | db.ParentColumn>;
+    }
+    export interface Insertable {
+      /**
+      * **matches.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('matches_id_seq'::regclass)`
+      */
+      id?: number | db.Parameter<number> | db.DefaultType | db.SQLFragment;
+      /**
+      * **matches.player1**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      player1: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **matches.player2**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      player2: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **matches.date_creation**
+      * - `date` in database
+      * - `NOT NULL`, no default
+      */
+      date_creation: (db.DateString | Date) | db.Parameter<(db.DateString | Date)> | db.SQLFragment;
+      /**
+      * **matches.round**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      round: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **matches.status**
+      * - `varchar` in database
+      * - Nullable, no default
+      */
+      status?: string | db.Parameter<string> | null | db.DefaultType | db.SQLFragment;
+    }
+    export interface Updatable {
+      /**
+      * **matches.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('matches_id_seq'::regclass)`
+      */
+      id?: number | db.Parameter<number> | db.DefaultType | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.DefaultType | db.SQLFragment>;
+      /**
+      * **matches.player1**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      player1?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **matches.player2**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      player2?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **matches.date_creation**
+      * - `date` in database
+      * - `NOT NULL`, no default
+      */
+      date_creation?: (db.DateString | Date) | db.Parameter<(db.DateString | Date)> | db.SQLFragment | db.SQLFragment<any, (db.DateString | Date) | db.Parameter<(db.DateString | Date)> | db.SQLFragment>;
+      /**
+      * **matches.round**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      round?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **matches.status**
+      * - `varchar` in database
+      * - Nullable, no default
+      */
+      status?: string | db.Parameter<string> | null | db.DefaultType | db.SQLFragment | db.SQLFragment<any, string | db.Parameter<string> | null | db.DefaultType | db.SQLFragment>;
+    }
+    export type UniqueIndex = 'matches_id_key';
+    export type Column = keyof Selectable;
+    export type OnlyCols<T extends readonly Column[]> = Pick<Selectable, T[number]>;
+    export type SQLExpression = Table | db.ColumnNames<Updatable | (keyof Updatable)[]> | db.ColumnValues<Updatable> | Whereable | Column | db.ParentColumn | db.GenericSQLExpression;
+    export type SQL = SQLExpression | SQLExpression[];
+  }
+
+  /**
+   * **players**
+   * - Table in database
+   */
+  export namespace players {
+    export type Table = 'players';
+    export interface Selectable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id: number;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level: number;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money: number;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins: number;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses: number;
+    }
+    export interface JSONSelectable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id: number;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level: number;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money: number;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins: number;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses: number;
+    }
+    export interface Whereable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+    }
+    export interface Insertable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses: number | db.Parameter<number> | db.SQLFragment;
+    }
+    export interface Updatable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+    }
+    export type UniqueIndex = 'players_pkey';
+    export type Column = keyof Selectable;
+    export type OnlyCols<T extends readonly Column[]> = Pick<Selectable, T[number]>;
+    export type SQLExpression = Table | db.ColumnNames<Updatable | (keyof Updatable)[]> | db.ColumnValues<Updatable> | Whereable | Column | db.ParentColumn | db.GenericSQLExpression;
+    export type SQL = SQLExpression | SQLExpression[];
+  }
+
+  /**
    * **users**
    * - Table in database
    */
@@ -258,20 +634,20 @@ declare module 'zapatos/schema' {
   /* --- aggregate types --- */
 
   export namespace public {  
-    export type Table = users.Table;
-    export type Selectable = users.Selectable;
-    export type JSONSelectable = users.JSONSelectable;
-    export type Whereable = users.Whereable;
-    export type Insertable = users.Insertable;
-    export type Updatable = users.Updatable;
-    export type UniqueIndex = users.UniqueIndex;
-    export type Column = users.Column;
+    export type Table = matches.Table | players.Table | users.Table;
+    export type Selectable = matches.Selectable | players.Selectable | users.Selectable;
+    export type JSONSelectable = matches.JSONSelectable | players.JSONSelectable | users.JSONSelectable;
+    export type Whereable = matches.Whereable | players.Whereable | users.Whereable;
+    export type Insertable = matches.Insertable | players.Insertable | users.Insertable;
+    export type Updatable = matches.Updatable | players.Updatable | users.Updatable;
+    export type UniqueIndex = matches.UniqueIndex | players.UniqueIndex | users.UniqueIndex;
+    export type Column = matches.Column | players.Column | users.Column;
   
-    export type AllBaseTables = [users.Table];
+    export type AllBaseTables = [matches.Table, players.Table, users.Table];
     export type AllForeignTables = [];
     export type AllViews = [];
     export type AllMaterializedViews = [];
-    export type AllTablesAndViews = [users.Table];
+    export type AllTablesAndViews = [matches.Table, players.Table, users.Table];
   }
 
 
@@ -299,34 +675,50 @@ declare module 'zapatos/schema' {
   /* === lookups === */
 
   export type SelectableForTable<T extends Table> = {
+    "matches": matches.Selectable;
+    "players": players.Selectable;
     "users": users.Selectable;
   }[T];
 
   export type JSONSelectableForTable<T extends Table> = {
+    "matches": matches.JSONSelectable;
+    "players": players.JSONSelectable;
     "users": users.JSONSelectable;
   }[T];
 
   export type WhereableForTable<T extends Table> = {
+    "matches": matches.Whereable;
+    "players": players.Whereable;
     "users": users.Whereable;
   }[T];
 
   export type InsertableForTable<T extends Table> = {
+    "matches": matches.Insertable;
+    "players": players.Insertable;
     "users": users.Insertable;
   }[T];
 
   export type UpdatableForTable<T extends Table> = {
+    "matches": matches.Updatable;
+    "players": players.Updatable;
     "users": users.Updatable;
   }[T];
 
   export type UniqueIndexForTable<T extends Table> = {
+    "matches": matches.UniqueIndex;
+    "players": players.UniqueIndex;
     "users": users.UniqueIndex;
   }[T];
 
   export type ColumnForTable<T extends Table> = {
+    "matches": matches.Column;
+    "players": players.Column;
     "users": users.Column;
   }[T];
 
   export type SQLForTable<T extends Table> = {
+    "matches": matches.SQL;
+    "players": players.SQL;
     "users": users.SQL;
   }[T];
 
