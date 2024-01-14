@@ -23,6 +23,585 @@ declare module 'zapatos/schema' {
   /* --- tables --- */
 
   /**
+   * **monsters**
+   * - Table in database
+   */
+  export namespace monsters {
+    export type Table = 'monsters';
+    export interface Selectable {
+      /**
+      * **monsters.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('monsters_id_seq'::regclass)`
+      */
+      id: number;
+      /**
+      * **monsters.name**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      name: string;
+      /**
+      * **monsters.ability_damage**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      ability_damage: number;
+      /**
+      * **monsters.ability_power**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      ability_power: number;
+      /**
+      * **monsters.physical_armor**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      physical_armor: number;
+      /**
+      * **monsters.magical_armor**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      magical_armor: number;
+      /**
+      * **monsters.speed**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      speed: number;
+      /**
+      * **monsters.cost**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      cost: number;
+    }
+    export interface JSONSelectable {
+      /**
+      * **monsters.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('monsters_id_seq'::regclass)`
+      */
+      id: number;
+      /**
+      * **monsters.name**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      name: string;
+      /**
+      * **monsters.ability_damage**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      ability_damage: number;
+      /**
+      * **monsters.ability_power**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      ability_power: number;
+      /**
+      * **monsters.physical_armor**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      physical_armor: number;
+      /**
+      * **monsters.magical_armor**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      magical_armor: number;
+      /**
+      * **monsters.speed**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      speed: number;
+      /**
+      * **monsters.cost**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      cost: number;
+    }
+    export interface Whereable {
+      /**
+      * **monsters.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('monsters_id_seq'::regclass)`
+      */
+      id?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **monsters.name**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      name?: string | db.Parameter<string> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, string | db.Parameter<string> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **monsters.ability_damage**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      ability_damage?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **monsters.ability_power**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      ability_power?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **monsters.physical_armor**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      physical_armor?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **monsters.magical_armor**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      magical_armor?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **monsters.speed**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      speed?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **monsters.cost**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      cost?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+    }
+    export interface Insertable {
+      /**
+      * **monsters.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('monsters_id_seq'::regclass)`
+      */
+      id?: number | db.Parameter<number> | db.DefaultType | db.SQLFragment;
+      /**
+      * **monsters.name**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      name: string | db.Parameter<string> | db.SQLFragment;
+      /**
+      * **monsters.ability_damage**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      ability_damage: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **monsters.ability_power**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      ability_power: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **monsters.physical_armor**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      physical_armor: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **monsters.magical_armor**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      magical_armor: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **monsters.speed**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      speed: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **monsters.cost**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      cost: number | db.Parameter<number> | db.SQLFragment;
+    }
+    export interface Updatable {
+      /**
+      * **monsters.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('monsters_id_seq'::regclass)`
+      */
+      id?: number | db.Parameter<number> | db.DefaultType | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.DefaultType | db.SQLFragment>;
+      /**
+      * **monsters.name**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      name?: string | db.Parameter<string> | db.SQLFragment | db.SQLFragment<any, string | db.Parameter<string> | db.SQLFragment>;
+      /**
+      * **monsters.ability_damage**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      ability_damage?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **monsters.ability_power**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      ability_power?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **monsters.physical_armor**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      physical_armor?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **monsters.magical_armor**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      magical_armor?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **monsters.speed**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      speed?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **monsters.cost**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      cost?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+    }
+    export type UniqueIndex = 'monsters_id_key';
+    export type Column = keyof Selectable;
+    export type OnlyCols<T extends readonly Column[]> = Pick<Selectable, T[number]>;
+    export type SQLExpression = Table | db.ColumnNames<Updatable | (keyof Updatable)[]> | db.ColumnValues<Updatable> | Whereable | Column | db.ParentColumn | db.GenericSQLExpression;
+    export type SQL = SQLExpression | SQLExpression[];
+  }
+
+  /**
+   * **players**
+   * - Table in database
+   */
+  export namespace players {
+    export type Table = 'players';
+    export interface Selectable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id: number;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level: number;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money: number;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins: number;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses: number;
+    }
+    export interface JSONSelectable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id: number;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level: number;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money: number;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins: number;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses: number;
+    }
+    export interface Whereable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+    }
+    export interface Insertable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses: number | db.Parameter<number> | db.SQLFragment;
+    }
+    export interface Updatable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+    }
+    export type UniqueIndex = 'players_pkey';
+    export type Column = keyof Selectable;
+    export type OnlyCols<T extends readonly Column[]> = Pick<Selectable, T[number]>;
+    export type SQLExpression = Table | db.ColumnNames<Updatable | (keyof Updatable)[]> | db.ColumnValues<Updatable> | Whereable | Column | db.ParentColumn | db.GenericSQLExpression;
+    export type SQL = SQLExpression | SQLExpression[];
+  }
+
+  /**
+   * **possession_monsters**
+   * - Table in database
+   */
+  export namespace possession_monsters {
+    export type Table = 'possession_monsters';
+    export interface Selectable {
+      /**
+      * **possession_monsters.id_player**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id_player: number;
+      /**
+      * **possession_monsters.id_monster**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id_monster: number;
+      /**
+      * **possession_monsters.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level: number;
+      /**
+      * **possession_monsters.team**
+      * - `bool` in database
+      * - `NOT NULL`, no default
+      */
+      team: boolean;
+    }
+    export interface JSONSelectable {
+      /**
+      * **possession_monsters.id_player**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id_player: number;
+      /**
+      * **possession_monsters.id_monster**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id_monster: number;
+      /**
+      * **possession_monsters.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level: number;
+      /**
+      * **possession_monsters.team**
+      * - `bool` in database
+      * - `NOT NULL`, no default
+      */
+      team: boolean;
+    }
+    export interface Whereable {
+      /**
+      * **possession_monsters.id_player**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id_player?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **possession_monsters.id_monster**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id_monster?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **possession_monsters.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **possession_monsters.team**
+      * - `bool` in database
+      * - `NOT NULL`, no default
+      */
+      team?: boolean | db.Parameter<boolean> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, boolean | db.Parameter<boolean> | db.SQLFragment | db.ParentColumn>;
+    }
+    export interface Insertable {
+      /**
+      * **possession_monsters.id_player**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id_player: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **possession_monsters.id_monster**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id_monster: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **possession_monsters.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **possession_monsters.team**
+      * - `bool` in database
+      * - `NOT NULL`, no default
+      */
+      team: boolean | db.Parameter<boolean> | db.SQLFragment;
+    }
+    export interface Updatable {
+      /**
+      * **possession_monsters.id_player**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id_player?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **possession_monsters.id_monster**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id_monster?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **possession_monsters.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **possession_monsters.team**
+      * - `bool` in database
+      * - `NOT NULL`, no default
+      */
+      team?: boolean | db.Parameter<boolean> | db.SQLFragment | db.SQLFragment<any, boolean | db.Parameter<boolean> | db.SQLFragment>;
+    }
+    export type UniqueIndex = never;
+    export type Column = keyof Selectable;
+    export type OnlyCols<T extends readonly Column[]> = Pick<Selectable, T[number]>;
+    export type SQLExpression = Table | db.ColumnNames<Updatable | (keyof Updatable)[]> | db.ColumnValues<Updatable> | Whereable | Column | db.ParentColumn | db.GenericSQLExpression;
+    export type SQL = SQLExpression | SQLExpression[];
+  }
+
+  /**
    * **users**
    * - Table in database
    */
@@ -258,20 +837,20 @@ declare module 'zapatos/schema' {
   /* --- aggregate types --- */
 
   export namespace public {  
-    export type Table = users.Table;
-    export type Selectable = users.Selectable;
-    export type JSONSelectable = users.JSONSelectable;
-    export type Whereable = users.Whereable;
-    export type Insertable = users.Insertable;
-    export type Updatable = users.Updatable;
-    export type UniqueIndex = users.UniqueIndex;
-    export type Column = users.Column;
+    export type Table = monsters.Table | players.Table | possession_monsters.Table | users.Table;
+    export type Selectable = monsters.Selectable | players.Selectable | possession_monsters.Selectable | users.Selectable;
+    export type JSONSelectable = monsters.JSONSelectable | players.JSONSelectable | possession_monsters.JSONSelectable | users.JSONSelectable;
+    export type Whereable = monsters.Whereable | players.Whereable | possession_monsters.Whereable | users.Whereable;
+    export type Insertable = monsters.Insertable | players.Insertable | possession_monsters.Insertable | users.Insertable;
+    export type Updatable = monsters.Updatable | players.Updatable | possession_monsters.Updatable | users.Updatable;
+    export type UniqueIndex = monsters.UniqueIndex | players.UniqueIndex | possession_monsters.UniqueIndex | users.UniqueIndex;
+    export type Column = monsters.Column | players.Column | possession_monsters.Column | users.Column;
   
-    export type AllBaseTables = [users.Table];
+    export type AllBaseTables = [monsters.Table, players.Table, possession_monsters.Table, users.Table];
     export type AllForeignTables = [];
     export type AllViews = [];
     export type AllMaterializedViews = [];
-    export type AllTablesAndViews = [users.Table];
+    export type AllTablesAndViews = [monsters.Table, players.Table, possession_monsters.Table, users.Table];
   }
 
 
@@ -299,34 +878,58 @@ declare module 'zapatos/schema' {
   /* === lookups === */
 
   export type SelectableForTable<T extends Table> = {
+    "monsters": monsters.Selectable;
+    "players": players.Selectable;
+    "possession_monsters": possession_monsters.Selectable;
     "users": users.Selectable;
   }[T];
 
   export type JSONSelectableForTable<T extends Table> = {
+    "monsters": monsters.JSONSelectable;
+    "players": players.JSONSelectable;
+    "possession_monsters": possession_monsters.JSONSelectable;
     "users": users.JSONSelectable;
   }[T];
 
   export type WhereableForTable<T extends Table> = {
+    "monsters": monsters.Whereable;
+    "players": players.Whereable;
+    "possession_monsters": possession_monsters.Whereable;
     "users": users.Whereable;
   }[T];
 
   export type InsertableForTable<T extends Table> = {
+    "monsters": monsters.Insertable;
+    "players": players.Insertable;
+    "possession_monsters": possession_monsters.Insertable;
     "users": users.Insertable;
   }[T];
 
   export type UpdatableForTable<T extends Table> = {
+    "monsters": monsters.Updatable;
+    "players": players.Updatable;
+    "possession_monsters": possession_monsters.Updatable;
     "users": users.Updatable;
   }[T];
 
   export type UniqueIndexForTable<T extends Table> = {
+    "monsters": monsters.UniqueIndex;
+    "players": players.UniqueIndex;
+    "possession_monsters": possession_monsters.UniqueIndex;
     "users": users.UniqueIndex;
   }[T];
 
   export type ColumnForTable<T extends Table> = {
+    "monsters": monsters.Column;
+    "players": players.Column;
+    "possession_monsters": possession_monsters.Column;
     "users": users.Column;
   }[T];
 
   export type SQLForTable<T extends Table> = {
+    "monsters": monsters.SQL;
+    "players": players.SQL;
+    "possession_monsters": possession_monsters.SQL;
     "users": users.SQL;
   }[T];
 
