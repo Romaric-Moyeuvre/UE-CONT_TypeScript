@@ -23,6 +23,149 @@ declare module 'zapatos/schema' {
   /* --- tables --- */
 
   /**
+   * **messages**
+   * - Table in database
+   */
+  export namespace messages {
+    export type Table = 'messages';
+    export interface Selectable {
+      /**
+      * **messages.sender**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      sender: number;
+      /**
+      * **messages.receiver**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      receiver: number;
+      /**
+      * **messages.time**
+      * - `date` in database
+      * - `NOT NULL`, no default
+      */
+      time: Date;
+      /**
+      * **messages.content**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      content: string;
+    }
+    export interface JSONSelectable {
+      /**
+      * **messages.sender**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      sender: number;
+      /**
+      * **messages.receiver**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      receiver: number;
+      /**
+      * **messages.time**
+      * - `date` in database
+      * - `NOT NULL`, no default
+      */
+      time: db.DateString;
+      /**
+      * **messages.content**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      content: string;
+    }
+    export interface Whereable {
+      /**
+      * **messages.sender**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      sender?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **messages.receiver**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      receiver?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **messages.time**
+      * - `date` in database
+      * - `NOT NULL`, no default
+      */
+      time?: (db.DateString | Date) | db.Parameter<(db.DateString | Date)> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, (db.DateString | Date) | db.Parameter<(db.DateString | Date)> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **messages.content**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      content?: string | db.Parameter<string> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, string | db.Parameter<string> | db.SQLFragment | db.ParentColumn>;
+    }
+    export interface Insertable {
+      /**
+      * **messages.sender**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      sender: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **messages.receiver**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      receiver: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **messages.time**
+      * - `date` in database
+      * - `NOT NULL`, no default
+      */
+      time: (db.DateString | Date) | db.Parameter<(db.DateString | Date)> | db.SQLFragment;
+      /**
+      * **messages.content**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      content: string | db.Parameter<string> | db.SQLFragment;
+    }
+    export interface Updatable {
+      /**
+      * **messages.sender**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      sender?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **messages.receiver**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      receiver?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **messages.time**
+      * - `date` in database
+      * - `NOT NULL`, no default
+      */
+      time?: (db.DateString | Date) | db.Parameter<(db.DateString | Date)> | db.SQLFragment | db.SQLFragment<any, (db.DateString | Date) | db.Parameter<(db.DateString | Date)> | db.SQLFragment>;
+      /**
+      * **messages.content**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      content?: string | db.Parameter<string> | db.SQLFragment | db.SQLFragment<any, string | db.Parameter<string> | db.SQLFragment>;
+    }
+    export type UniqueIndex = never;
+    export type Column = keyof Selectable;
+    export type OnlyCols<T extends readonly Column[]> = Pick<Selectable, T[number]>;
+    export type SQLExpression = Table | db.ColumnNames<Updatable | (keyof Updatable)[]> | db.ColumnValues<Updatable> | Whereable | Column | db.ParentColumn | db.GenericSQLExpression;
+    export type SQL = SQLExpression | SQLExpression[];
+  }
+
+  /**
    * **users**
    * - Table in database
    */
@@ -258,20 +401,20 @@ declare module 'zapatos/schema' {
   /* --- aggregate types --- */
 
   export namespace public {  
-    export type Table = users.Table;
-    export type Selectable = users.Selectable;
-    export type JSONSelectable = users.JSONSelectable;
-    export type Whereable = users.Whereable;
-    export type Insertable = users.Insertable;
-    export type Updatable = users.Updatable;
-    export type UniqueIndex = users.UniqueIndex;
-    export type Column = users.Column;
+    export type Table = messages.Table | users.Table;
+    export type Selectable = messages.Selectable | users.Selectable;
+    export type JSONSelectable = messages.JSONSelectable | users.JSONSelectable;
+    export type Whereable = messages.Whereable | users.Whereable;
+    export type Insertable = messages.Insertable | users.Insertable;
+    export type Updatable = messages.Updatable | users.Updatable;
+    export type UniqueIndex = messages.UniqueIndex | users.UniqueIndex;
+    export type Column = messages.Column | users.Column;
   
-    export type AllBaseTables = [users.Table];
+    export type AllBaseTables = [messages.Table, users.Table];
     export type AllForeignTables = [];
     export type AllViews = [];
     export type AllMaterializedViews = [];
-    export type AllTablesAndViews = [users.Table];
+    export type AllTablesAndViews = [messages.Table, users.Table];
   }
 
 
@@ -299,34 +442,42 @@ declare module 'zapatos/schema' {
   /* === lookups === */
 
   export type SelectableForTable<T extends Table> = {
+    "messages": messages.Selectable;
     "users": users.Selectable;
   }[T];
 
   export type JSONSelectableForTable<T extends Table> = {
+    "messages": messages.JSONSelectable;
     "users": users.JSONSelectable;
   }[T];
 
   export type WhereableForTable<T extends Table> = {
+    "messages": messages.Whereable;
     "users": users.Whereable;
   }[T];
 
   export type InsertableForTable<T extends Table> = {
+    "messages": messages.Insertable;
     "users": users.Insertable;
   }[T];
 
   export type UpdatableForTable<T extends Table> = {
+    "messages": messages.Updatable;
     "users": users.Updatable;
   }[T];
 
   export type UniqueIndexForTable<T extends Table> = {
+    "messages": messages.UniqueIndex;
     "users": users.UniqueIndex;
   }[T];
 
   export type ColumnForTable<T extends Table> = {
+    "messages": messages.Column;
     "users": users.Column;
   }[T];
 
   export type SQLForTable<T extends Table> = {
+    "messages": messages.SQL;
     "users": users.SQL;
   }[T];
 

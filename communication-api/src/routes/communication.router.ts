@@ -9,13 +9,13 @@ async function accountRouter(fastify: FastifyInstance) {
     });
     fastify.route({
       method: "POST",
-      url: "/conversation/:otheruser",
+      url: "/conversation/:username",
       schema: sendMessage,
       handler: controllers.sendMessage,
     });
     fastify.route({
       method: "GET",
-      url: "/conversation/:otheruser",
+      url: "/conversation/:username",
       handler: controllers.seeMessages,
     });
     fastify.route({

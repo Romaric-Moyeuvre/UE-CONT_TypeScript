@@ -27,9 +27,23 @@ export const sendMessage = async (
   }>,
   reply: FastifyReply
 ) => {
-  Promise.resolve([]).then(() => {
-    reply.send({ data: "sendMessage not implemented" });
-  });
+  const token = jwt.verify(request.headers.token, privateKey) as TokenInfo;
+  const temp = await db.sql<
+    s.users.SQL,
+    s.users.Selectable[]
+  >`SELECT id FROM users WHERE username = ${db.param(
+    request.params.username
+  )}`.run(pool);
+  if (temp.length != 1) {
+    reply.send({ error: "400", message: "no user found" });
+  } else {
+    let now = new Date();
+    await db.sql<s.messages.SQL, s.messages.Insertable[]>`
+    INSERT INTO messages VALUES (${db.param(token.id)},${db.param(
+      temp[0].id
+    )},${db.param(now)},${db.param(request.body.message)})`.run(pool);
+    reply.send({ code: "200", message: "message sent" });
+  }
 };
 export const seeMessages = async (
   request: FastifyRequest<{
@@ -38,9 +52,26 @@ export const seeMessages = async (
   }>,
   reply: FastifyReply
 ) => {
-  Promise.resolve([]).then(() => {
-    reply.send({ data: "seeMessages not implemented" });
-  });
+  const temp = await db.sql<
+    s.users.SQL,
+    s.users.Selectable[]
+  >`SELECT id FROM users WHERE username = ${db.param(
+    request.params.username
+  )}`.run(pool);
+  if (temp.length != 1) {
+    reply.send({ error: "400", message: "no user found" });
+  } else {
+    const token = jwt.verify(request.headers.token, privateKey) as TokenInfo;
+    const temp2 = await db.sql<
+      s.messages.SQL,
+      s.messages.Selectable[]
+    >`SELECT * FROM messages WHERE (sender = ${db.param(
+      temp[0].id
+    )} AND receiver = ${db.param(token.id)}) OR (sender = ${db.param(
+      token.id
+    )} AND receiver = ${db.param(temp[0].id)}) ORDER BY time ASC`.run(pool);
+    reply.send({ code: "200", data: temp2 });
+  }
 };
 export const sendInvite = async (
   request: FastifyRequest<{
@@ -49,17 +80,36 @@ export const sendInvite = async (
   }>,
   reply: FastifyReply
 ) => {
-  Promise.resolve([]).then(() => {
-    reply.send({ data: "sendInvite not implemented" });
-  });
+  const temp = await db.sql<
+    s.users.SQL,
+    s.users.Selectable[]
+  >`SELECT id FROM users WHERE username = ${db.param(
+    request.body.username
+  )}`.run(pool);
+  if (temp.length != 1) {
+    reply.send({ error: "400", message: "no user found" });
+  } else {
+    const token = jwt.verify(request.headers.token, privateKey) as TokenInfo;
+    let now = new Date();
+    await db.sql<
+      s.messages.SQL,
+      s.messages.Insertable[]
+    >`INSERT INTO messages VALUES (${db.param(token.id)},${db.param(
+      temp[0].id
+    )},${db.param(now)},${db.param("[MATCH INVITATION]")})`.run(pool);
+    reply.send({ code: "200", data: "message sent" });
+  }
 };
 export const seeInvites = async (
   request: FastifyRequest<{ Headers: { token: string } }>,
   reply: FastifyReply
 ) => {
-  Promise.resolve([]).then(() => {
-    reply.send({ data: "seeInvites not implemented" });
-  });
+  const token = jwt.verify(request.headers.token, privateKey) as TokenInfo;
+  const temp = await db.sql<
+    s.messages.SQL,
+    s.messages.Selectable[]
+  >`SELECT * FROM messages WHERE content = '[MATCH INVITATION]' `.run(pool);
+  reply.send({ code: "200", data: temp });
 };
 export const acceptInvite = async (
   request: FastifyRequest<{
@@ -68,7 +118,25 @@ export const acceptInvite = async (
   }>,
   reply: FastifyReply
 ) => {
-  Promise.resolve([]).then(() => {
-    reply.send({ data: "acceptInvite not implemented" });
-  });
+  const temp1 = await db.sql<
+    s.users.SQL,
+    s.users.Selectable[]
+  >`SELECT id FROM users WHERE username = ${db.param(
+    request.body.username
+  )}`.run(pool);
+  if (temp1.length != 1) {
+    reply.send({ error: "400", message: "no user found" });
+  } else {
+  const token = jwt.verify(request.headers.token, privateKey) as TokenInfo;
+  const temp = await db.sql<
+  s.messages.SQL,
+  s.messages.Selectable[]
+>`SELECT * FROM messages WHERE sender = ${db.param(temp1[0].id)} AND receiver = ${db.param(token.id)} AND content = '[MATCH INVITATION]' `.run(pool);
+    if (temp.length > 0) {
+      await db.sql<s.messages.SQL, s.messages.Updatable[]>`DELETE FROM messages WHERE sender = ${db.param(temp1[0].id)} AND receiver = ${db.param(token.id)} AND content = '[MATCH INVITATION]'`.run(pool);
+      reply.send({ code: "200", message: "match accepted !" });
+    } else {
+      reply.send({ error: "400", message: "no invitation found" });
+    }
+}
 };
