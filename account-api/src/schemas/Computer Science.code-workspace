@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "Computer Science",
+			"path": "../../../../.."
+		}
+	],
+	"settings": {
+		"files.watcherExclude": {
+			"**/target": true
+		}
+	}
+}

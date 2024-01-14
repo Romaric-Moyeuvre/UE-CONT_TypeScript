@@ -1,0 +1,1 @@
+export type TokenInfo = { id: number; role: string; expiration_date: number };

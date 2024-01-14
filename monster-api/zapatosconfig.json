@@ -1,0 +1,13 @@
+{
+    "db": {
+      "connectionString": "postgres://qxwecjds:eHHQZ77vIV8vNVZw5P6urq-JlvoqQWdv@tyke.db.elephantsql.com/qxwecjds"
+    },
+    "outDir": "./src",
+    "schemas": {
+      "public": {
+        "include": "users",
+        "exclude": []
+      }
+    }
+  }
+  
