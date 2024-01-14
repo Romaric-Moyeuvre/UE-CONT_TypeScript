@@ -30,7 +30,6 @@ export const signIn = {
 
 export const changePassword = {
   body: S.object()
-  .prop('username',S.string().required())
   .prop('newpassword',S.string().required())
   .prop('confirmnewpassword',S.string().required()),
   queryString: S.object(),

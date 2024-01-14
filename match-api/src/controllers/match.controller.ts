@@ -19,6 +19,15 @@ export const welcome = async (
   });
 };
 
+export const newSkirmish = async (
+  request: FastifyRequest<{ Body:{difficulty: number},Headers: { token: string } }>,
+  reply: FastifyReply
+) => {
+  Promise.resolve([]).then(() => {
+    reply.send({ data: "newSkirmish not implemented" });
+  });
+};
+
 export const newOpenMatch = async (
   request: FastifyRequest<{ Headers: { token: string } }>,
   reply: FastifyReply

@@ -23,6 +23,179 @@ declare module 'zapatos/schema' {
   /* --- tables --- */
 
   /**
+   * **players**
+   * - Table in database
+   */
+  export namespace players {
+    export type Table = 'players';
+    export interface Selectable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id: number;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level: number;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money: number;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins: number;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses: number;
+    }
+    export interface JSONSelectable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id: number;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level: number;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money: number;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins: number;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses: number;
+    }
+    export interface Whereable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+    }
+    export interface Insertable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses: number | db.Parameter<number> | db.SQLFragment;
+    }
+    export interface Updatable {
+      /**
+      * **players.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **players.level**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      level?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **players.money**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      money?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **players.wins**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      wins?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **players.losses**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      losses?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+    }
+    export type UniqueIndex = 'players_pkey';
+    export type Column = keyof Selectable;
+    export type OnlyCols<T extends readonly Column[]> = Pick<Selectable, T[number]>;
+    export type SQLExpression = Table | db.ColumnNames<Updatable | (keyof Updatable)[]> | db.ColumnValues<Updatable> | Whereable | Column | db.ParentColumn | db.GenericSQLExpression;
+    export type SQL = SQLExpression | SQLExpression[];
+  }
+
+  /**
    * **users**
    * - Table in database
    */
@@ -258,20 +431,20 @@ declare module 'zapatos/schema' {
   /* --- aggregate types --- */
 
   export namespace public {  
-    export type Table = users.Table;
-    export type Selectable = users.Selectable;
-    export type JSONSelectable = users.JSONSelectable;
-    export type Whereable = users.Whereable;
-    export type Insertable = users.Insertable;
-    export type Updatable = users.Updatable;
-    export type UniqueIndex = users.UniqueIndex;
-    export type Column = users.Column;
+    export type Table = players.Table | users.Table;
+    export type Selectable = players.Selectable | users.Selectable;
+    export type JSONSelectable = players.JSONSelectable | users.JSONSelectable;
+    export type Whereable = players.Whereable | users.Whereable;
+    export type Insertable = players.Insertable | users.Insertable;
+    export type Updatable = players.Updatable | users.Updatable;
+    export type UniqueIndex = players.UniqueIndex | users.UniqueIndex;
+    export type Column = players.Column | users.Column;
   
-    export type AllBaseTables = [users.Table];
+    export type AllBaseTables = [players.Table, users.Table];
     export type AllForeignTables = [];
     export type AllViews = [];
     export type AllMaterializedViews = [];
-    export type AllTablesAndViews = [users.Table];
+    export type AllTablesAndViews = [players.Table, users.Table];
   }
 
 
@@ -299,34 +472,42 @@ declare module 'zapatos/schema' {
   /* === lookups === */
 
   export type SelectableForTable<T extends Table> = {
+    "players": players.Selectable;
     "users": users.Selectable;
   }[T];
 
   export type JSONSelectableForTable<T extends Table> = {
+    "players": players.JSONSelectable;
     "users": users.JSONSelectable;
   }[T];
 
   export type WhereableForTable<T extends Table> = {
+    "players": players.Whereable;
     "users": users.Whereable;
   }[T];
 
   export type InsertableForTable<T extends Table> = {
+    "players": players.Insertable;
     "users": users.Insertable;
   }[T];
 
   export type UpdatableForTable<T extends Table> = {
+    "players": players.Updatable;
     "users": users.Updatable;
   }[T];
 
   export type UniqueIndexForTable<T extends Table> = {
+    "players": players.UniqueIndex;
     "users": users.UniqueIndex;
   }[T];
 
   export type ColumnForTable<T extends Table> = {
+    "players": players.Column;
     "users": users.Column;
   }[T];
 
   export type SQLForTable<T extends Table> = {
+    "players": players.SQL;
     "users": users.SQL;
   }[T];
 
