@@ -22,7 +22,7 @@ async function accountRouter(fastify: FastifyInstance) {
   fastify.route({
     method: "GET",
     url: "/profile",
-    handler: controllers.getInfo,
+    handler: controllers.getProfile,
   });
   fastify.route({
     method: "POST",
