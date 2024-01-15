@@ -14,9 +14,7 @@ export const welcome = async (
   request: FastifyRequest<{}>,
   reply: FastifyReply
 ) => {
-  Promise.resolve([]).then(() => {
-    reply.send({ data: "Welcome to the communication API" });
-  });
+  reply.send({ data: "Welcome to the communication API" });
 };
 
 export const sendMessage = async (
